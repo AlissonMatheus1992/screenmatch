@@ -2,6 +2,8 @@ package br.com.alura.screenmatch.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.OptionalDouble;
 
 @Entity
@@ -27,6 +29,11 @@ public class Serie {
     private String poster;
 
     private String sinopse;
+
+    @Transient
+    List<Episodio> episodios = new ArrayList<>();
+
+    public Serie(){}
 
     public Serie(DadosSerie dadosSerie) {
         this.titulo = dadosSerie.titulo();
